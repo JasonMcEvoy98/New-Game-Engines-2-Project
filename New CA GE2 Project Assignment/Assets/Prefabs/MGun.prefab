@@ -102,6 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2207626976623655711}
+  - component: {fileID: 6026318844053200730}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -123,6 +124,18 @@ Transform:
   m_Father: {fileID: 4231565521847866746}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6026318844053200730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325327367413535549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894562c3629cd734ea6bc0782923909d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8598973885478161503
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4231565521847866746}
+  - component: {fileID: 1568269074264131221}
   m_Layer: 0
   m_Name: MGun
   m_TagString: Untagged
@@ -249,3 +263,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568269074264131221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8859152949835682841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63326435bc4351409ab97a7c51f5745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: MGGun
+  shotsPerSecond: 2
+  ordinancePrefab: {fileID: 0}
+  weaponBarrel: {fileID: 0}
