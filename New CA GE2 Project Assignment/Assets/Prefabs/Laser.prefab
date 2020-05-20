@@ -127,4 +127,5 @@ MonoBehaviour:
   muzzleVelocity: 300
   armorDamage: 100
   shieldDamage: 50
-  explosion: {fileID: 0}
+  explosion: {fileID: 7638415172263179142, guid: 13b295b4be973aa4a8797ad2f4414574,
+    type: 3}

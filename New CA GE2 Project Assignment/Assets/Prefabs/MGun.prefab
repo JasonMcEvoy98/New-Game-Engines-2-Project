@@ -277,5 +277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: MGGun
   shotsPerSecond: 2
-  ordinancePrefab: {fileID: 0}
+  ordinancePrefab: {fileID: 497442235322776958, guid: d6d73b8e1ead0a344b30d61899906d99,
+    type: 3}
   weaponBarrel: {fileID: 0}

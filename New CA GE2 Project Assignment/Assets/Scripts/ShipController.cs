@@ -16,6 +16,8 @@ public class ShipController : MonoBehaviour
     Rigidbody myRigidbody;
     float originalDrag;
 
+    Weapon[] myWeapons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,8 @@ public class ShipController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         originalDrag = myRigidbody.drag;
 
+        myWeapons = transform.GetComponentsInChildren<Weapon>();
+
         playerInput.ForwardEvent += ForwardThrust;
         playerInput.YawEvent += YawMovement;
         playerInput.PitchEvent += PitchMovement;
@@ -34,7 +38,26 @@ public class ShipController : MonoBehaviour
         playerInput.VerticalStrafeEvent += VerticalStrafeMovement;
         playerInput.SideStrafeEvent += SideStrafeMovement;
         playerInput.SlideEvent += EnableSlide;
+        //playerInput.TurnEvent += TurnToTarget;    no TurnEvent yet
+        playerInput.FireEvent += FireWeapon;
 
+    }
+    private void FireWeapon()
+    {
+        if (myWeapons.Length > 0) myWeapons[0].Fire(myRigidbody.velocity);
+    }
+
+    private void TurnToTarget (float x, float y, float z)
+    {
+        Vector3 desiredHeading = new Vector3(x, y, z);
+
+        Quaternion rotationGoal = Quaternion.LookRotation(desiredHeading);
+
+        //step makes the yawSpeed basically a degree per second measurement => may need to create a seperate var for this concept
+
+        float step = yawSpeed * Time.deltaTime;
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationGoal, step);
     }
 
     private void EnableSlide (float slide)

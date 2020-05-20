@@ -60,6 +60,11 @@ public class PlayerInput : MonoBehaviour, IControllerInput
     void GetMouseInput()
     {
 
+        if(FireEvent != null)
+        {
+            if (Input.GetMouseButton(0)) FireEvent(); 
+        }
+
         Vector3 mousePosition = Input.mousePosition;
 
         float yaw = (mousePosition.x - (Screen.width * .5f)) / (Screen.width * .5f);
