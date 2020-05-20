@@ -109,8 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableType: 0
   damageableStatus: 0
-  maxHP: 100
-  HP: 100
+  maxHP: 500
+  HP: 500
   explosionPrefab: {fileID: 7638415172263179142, guid: 13b295b4be973aa4a8797ad2f4414574,
     type: 3}
 --- !u!1 &6141946435499635370
