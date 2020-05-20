@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour, IControllerInput
     public event InputEventFloat SideStrafeEvent;
     public event InputEventFloat VerticalStrafeEvent;
     public event InputEvent FireEvent;
+    public event InputEventVector3 TurnEvent;
 
     public float deadZoneRadius = .2f;
     public float invertModifier = -1;

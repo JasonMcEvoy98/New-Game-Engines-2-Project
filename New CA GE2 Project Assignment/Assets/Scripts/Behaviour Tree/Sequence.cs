@@ -39,6 +39,5 @@ public class Sequence : BTNode
         currentNodeState = childRunning ? BTNodeState.RUNNING : BTNodeState.SUCCESS;
         return currentNodeState;
 
-
     }
 }

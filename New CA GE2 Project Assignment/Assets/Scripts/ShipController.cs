@@ -20,6 +20,10 @@ public class ShipController : MonoBehaviour
 
     private void Awake()
     {
+
+        if (!pilot) pilot = gameObject;
+
+
         if (pilot)
         {
             playerInput = pilot.GetComponent<IControllerInput>();
