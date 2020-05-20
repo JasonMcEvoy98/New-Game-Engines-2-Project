@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &497442235322776958
+--- !u!1 &167072291094895506
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6672928993602600790}
-  - component: {fileID: 2298377302963092533}
-  - component: {fileID: 5403321167731775807}
-  - component: {fileID: 7971038378930279966}
-  - component: {fileID: 8282055086926902267}
-  - component: {fileID: 3634686553606284703}
+  - component: {fileID: 167072291094895519}
+  - component: {fileID: 167072291094895518}
+  - component: {fileID: 167072291094895505}
+  - component: {fileID: 167072291094895504}
+  - component: {fileID: 167072291094895507}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6672928993602600790
+--- !u!4 &167072291094895519
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497442235322776958}
+  m_GameObject: {fileID: 167072291094895506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.095984, y: 21.28, z: 10.1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 4}
+  m_LocalPosition: {x: 14.746813, y: 26.77191, z: 66.98226}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2298377302963092533
+--- !u!33 &167072291094895518
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497442235322776958}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5403321167731775807
+  m_GameObject: {fileID: 167072291094895506}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &167072291094895505
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497442235322776958}
+  m_GameObject: {fileID: 167072291094895506}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6b86c6876fea1440a3c89702e7a04bc, type: 2}
+  - {fileID: 2100000, guid: 51f1ceb9b438d4d409bffe3f6e50916c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,50 +81,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7971038378930279966
-BoxCollider:
+--- !u!135 &167072291094895504
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497442235322776958}
+  m_GameObject: {fileID: 167072291094895506}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8282055086926902267
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497442235322776958}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &3634686553606284703
+--- !u!114 &167072291094895507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497442235322776958}
+  m_GameObject: {fileID: 167072291094895506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0141102ad0dc01d4abd1b200716452d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fb5e0bf943212b4286fd913b93015ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ordinanceName: Laser
-  muzzleVelocity: 300
-  armorDamage: 25
-  shieldDamage: 50
-  explosion: {fileID: 7638415172263179142, guid: 13b295b4be973aa4a8797ad2f4414574,
+  damageableType: 2
+  damageableStatus: 0
+  maxHP: 100
+  HP: 100
+  explosionPrefab: {fileID: 7638415172263179142, guid: 13b295b4be973aa4a8797ad2f4414574,
     type: 3}
