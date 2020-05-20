@@ -11,6 +11,7 @@ public class ShipController : MonoBehaviour
     public float yawSpeed = 10f;
     public float pitchSpeed = 10f;
     public float rollSpeed = 10f;
+    public float maxVelocity = 500f;
    
 
     Rigidbody myRigidbody;
@@ -54,7 +55,13 @@ public class ShipController : MonoBehaviour
     }
     private void FireWeapon()
     {
-        if (myWeapons.Length > 0) myWeapons[0].Fire(myRigidbody.velocity);
+        if (myWeapons.Length > 0)
+        {
+            for (int i =0; i < myWeapons.Length; i++)
+            {
+                myWeapons[i].Fire(myRigidbody.velocity);
+            }
+        }
     }
 
     private void TurnToTarget (float x, float y, float z)
@@ -84,6 +91,12 @@ public class ShipController : MonoBehaviour
     public void ForwardThrust(float thrust)
     {
         myRigidbody.AddForce(gameObject.transform.forward * thrust * forwardThrustPower * Time.deltaTime);
+
+        if(myRigidbody.velocity.magnitude > maxVelocity)
+        {
+            myRigidbody.velocity = myRigidbody.velocity.normalized * maxVelocity;
+        }
+
     }
 
     public void SideStrafeMovement (float thrust)

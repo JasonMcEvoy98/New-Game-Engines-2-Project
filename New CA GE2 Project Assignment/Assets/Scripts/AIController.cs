@@ -21,10 +21,27 @@ public class AIController : MonoBehaviour, IControllerInput, IBehaviourAI
     public Selector rootAI;
     public Sequence CheckArrivalSequence;
     public Sequence MoveSequence;
+    public Sequence DecideToAttack;
+    public Selector SelectTargetType;
+
+    GameObject target = null;
+    public string enemyFaction = "PlayerFaction";
 
     // Start is called before the first frame update
     void Start()
     {
+        DecideToAttack = new Sequence(new List<BTNode>
+        {
+            new RandomChanceCondition(1, 100, 10),
+            new FindNewTargetTask(this, enemyFaction)
+        });
+
+        SelectTargetType = new Selector(new List<BTNode>
+        {
+            DecideToAttack,
+            new FindWanderPointTask (this, 500f),
+        });
+
         CheckArrivalSequence = new Sequence(new List<BTNode>
         {
             new CheckArrivalTask(this),
@@ -34,7 +51,9 @@ public class AIController : MonoBehaviour, IControllerInput, IBehaviourAI
         MoveSequence = new Sequence(new List<BTNode>
         {
             new TurnToTargetTask(this, TurnEvent),
-            new MoveToTargetTask(this, 100f, ForwardEvent)
+            new MoveToTargetTask(this, 100f, ForwardEvent),
+            new IsTargetVisible (this),
+            new FireWeaponTask(this, FireEvent)
         });
 
         rootAI = new Selector(new List<BTNode>
@@ -55,6 +74,7 @@ public class AIController : MonoBehaviour, IControllerInput, IBehaviourAI
 
     public Vector3 SetTargetPosition(Vector3 targetPosition)
     {
+       
         myTargetPosition = targetPosition;
         return myTargetPosition;
 
@@ -67,7 +87,25 @@ public class AIController : MonoBehaviour, IControllerInput, IBehaviourAI
 
     public Vector3 GetTargetPosition()
     {
+        if (target != null) return target.transform.position;
+
         return myTargetPosition;
+    }
+
+    public GameObject SetTarget(GameObject newTarget)
+    {
+        target = newTarget;
+        return target;
+    }
+
+    public GameObject GetTarget()
+    {
+        return target;
+    }
+
+    public Transform GetTransform()
+    {
+        return gameObject.transform;
     }
 }
 

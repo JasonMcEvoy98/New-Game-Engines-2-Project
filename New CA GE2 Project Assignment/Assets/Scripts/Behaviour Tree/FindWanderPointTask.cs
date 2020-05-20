@@ -15,8 +15,9 @@ public class FindWanderPointTask : BTNode
 
     public override BTNodeState Evaluate()
     {
+        myAI.SetTarget(null);
+        Debug.Log("finding wander point");
         myAI.SetTargetPosition (Random.insideUnitSphere* range);
-
         return BTNodeState.SUCCESS;
     }
 
