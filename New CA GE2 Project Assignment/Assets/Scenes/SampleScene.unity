@@ -460,7 +460,6 @@ MonoBehaviour:
   yawSpeed: 10000
   pitchSpeed: 1000
   rollSpeed: 1000
-  invertModifier: -1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3caf2faf67ca691428186261cea77ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadZoneRadius: 0.2
+  invertModifier: -1
 --- !u!4 &1498134949
 Transform:
   m_ObjectHideFlags: 0
