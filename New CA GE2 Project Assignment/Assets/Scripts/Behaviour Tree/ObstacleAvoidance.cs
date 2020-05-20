@@ -26,17 +26,31 @@ public class ObstacleAvoidance : BTNode
         Vector3[] rayDirections =
         {
             agentTransform.forward,
+            Helper.GetDirectionFromAngleInDegrees(10f, agentTransform.forward, agentTransform.right),
+            Helper.GetDirectionFromAngleInDegrees(-10f, agentTransform.forward, agentTransform.right),
+            Helper.GetDirectionFromAngleInDegrees(10f, agentTransform.forward, agentTransform.up),
+            Helper.GetDirectionFromAngleInDegrees(-10f, agentTransform.forward, agentTransform.up),
             (agentTransform.forward + agentTransform.right). normalized,
             (agentTransform.forward - agentTransform.right). normalized,
+            (agentTransform.forward + agentTransform.up). normalized,
+            (agentTransform.forward - agentTransform.up). normalized,
+            (agentTransform.right). normalized,
+            (-agentTransform.right). normalized,
+            (agentTransform.up). normalized,
+            (-agentTransform.up). normalized,
         };
 
         DrawRays(rayDirections);
 
         RaycastHit hit;
 
-        if (Physics.Raycast(agentTransform.position, rayDirections[0], out hit, avoidDistance, avoidlayerMask))
+        if (Physics.Raycast(agentTransform.position, rayDirections[0], out hit, avoidDistance, avoidlayerMask) ||
+            Physics.Raycast(agentTransform.position, rayDirections[1], out hit, avoidDistance, avoidlayerMask) ||
+          Physics.Raycast(agentTransform.position, rayDirections[2], out hit, avoidDistance, avoidlayerMask) ||
+             Physics.Raycast(agentTransform.position, rayDirections[3], out hit, avoidDistance, avoidlayerMask) ||
+              Physics.Raycast(agentTransform.position, rayDirections[4], out hit, avoidDistance, avoidlayerMask))
         {
-            for (int i = 1; i < rayDirections.Length; i++)
+            for (int i = 5; i < rayDirections.Length; i++)
             {
                 bool goodTurn = CheckTurn(rayDirections[i]);
                 if (goodTurn) return BTNodeState.SUCCESS;

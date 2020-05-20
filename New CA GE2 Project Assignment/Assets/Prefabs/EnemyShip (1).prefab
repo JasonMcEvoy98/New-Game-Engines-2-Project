@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6141946435188434819}
   - component: {fileID: 6141946435188434816}
   - component: {fileID: 6141946435188434817}
+  - component: {fileID: 2594792660299961509}
   m_Layer: 0
   m_Name: EnemyShip (1)
   m_TagString: EnemyFaction
@@ -71,6 +72,10 @@ MonoBehaviour:
   MoveSequence: {fileID: 0}
   DecideToAttack: {fileID: 0}
   SelectTargetType: {fileID: 0}
+  avoidDistance: 100
+  avoidLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   enemyFaction: PlayerFaction
 --- !u!114 &6141946435188434817
 MonoBehaviour:
@@ -89,6 +94,25 @@ MonoBehaviour:
   yawSpeed: 90
   pitchSpeed: 1000
   rollSpeed: 1000
+  maxVelocity: 500
+--- !u!114 &2594792660299961509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6141946435188434822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb5e0bf943212b4286fd913b93015ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageableType: 0
+  damageableStatus: 0
+  maxHP: 100
+  HP: 100
+  explosionPrefab: {fileID: 7638415172263179142, guid: 13b295b4be973aa4a8797ad2f4414574,
+    type: 3}
 --- !u!1 &6141946435499635370
 GameObject:
   m_ObjectHideFlags: 0
