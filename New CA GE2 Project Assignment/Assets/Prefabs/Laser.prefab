@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ordinanceName: Laser
-  muzzleVelocity: 300
+  muzzleVelocity: 600
   armorDamage: 25
   shieldDamage: 50
   explosion: {fileID: 7638415172263179142, guid: 13b295b4be973aa4a8797ad2f4414574,

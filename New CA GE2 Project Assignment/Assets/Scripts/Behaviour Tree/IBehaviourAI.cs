@@ -10,5 +10,7 @@ public interface IBehaviourAI
     GameObject SetTarget(GameObject gameObject);
     GameObject GetTarget();
     Transform GetTransform();
-
+    bool GetAvoidFlag();
+    Vector3 SetTempTarget(Vector3 position);
+    Vector3 ReturnToSaveTarget();
 }

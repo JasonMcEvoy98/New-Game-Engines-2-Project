@@ -23,6 +23,11 @@ public class AIController : MonoBehaviour, IControllerInput, IBehaviourAI
     public Sequence MoveSequence;
     public Sequence DecideToAttack;
     public Selector SelectTargetType;
+    bool avoiding = false;
+    public float avoidDistance = 100f;
+    public LayerMask avoidLayerMask;
+    Vector3 temporaryTarget;
+    Vector3 savedTargetPosition;
 
     GameObject target = null;
     public string enemyFaction = "PlayerFaction";
@@ -50,7 +55,7 @@ public class AIController : MonoBehaviour, IControllerInput, IBehaviourAI
 
         MoveSequence = new Sequence(new List<BTNode>
         {
-            new TurnToTargetTask(this, TurnEvent),
+            new ObstacleAvoidance (this, avoidDistance, TurnEvent, avoidLayerMask),
             new MoveToTargetTask(this, 100f, ForwardEvent),
             new IsTargetVisible (this),
             new FireWeaponTask(this, FireEvent)
@@ -106,6 +111,28 @@ public class AIController : MonoBehaviour, IControllerInput, IBehaviourAI
     public Transform GetTransform()
     {
         return gameObject.transform;
+    }
+
+    public bool GetAvoidFlag()
+    {
+        return avoiding;
+    }
+
+    public Vector3 SetTempTarget(Vector3 position)
+    {
+        avoiding = true;
+        temporaryTarget = position;
+        savedTargetPosition = myTargetPosition;
+        return position;
+    }
+
+    public Vector3 ReturnToSaveTarget()
+    {
+        avoiding = false;
+        temporaryTarget = Vector3.zero;
+        myTargetPosition = savedTargetPosition;
+
+        return savedTargetPosition;
     }
 }
 
