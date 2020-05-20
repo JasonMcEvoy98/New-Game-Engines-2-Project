@@ -4,15 +4,16 @@ using UnityEngine;
 
 
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour, IControllerInput
 {
-
-    public event EventManager.InputEventFloat ForwardEvent;
-    public event EventManager.InputEventFloat YawEvent;
-    public event EventManager.InputEventFloat PitchEvent;
-    public event EventManager.InputEventFloat RollEvent;
-    public event EventManager.InputEventFloat SideStrafeEvent;
-    public event EventManager.InputEventFloat VerticalStrafeEvent;
+    public event InputEventFloat SlideEvent;
+    public event InputEventFloat ForwardEvent;
+    public event InputEventFloat YawEvent;
+    public event InputEventFloat PitchEvent;
+    public event InputEventFloat RollEvent;
+    public event InputEventFloat SideStrafeEvent;
+    public event InputEventFloat VerticalStrafeEvent;
+    public event InputEvent FireEvent;
 
     public float deadZoneRadius = .2f;
     public float invertModifier = -1;
@@ -48,6 +49,11 @@ public class PlayerInput : MonoBehaviour
         if (RollEvent != null)
         {
             if (Input.GetAxis("Roll") != 0) RollEvent(Input.GetAxis("Roll"));
+        }
+        if (SlideEvent != null)
+        {
+            if (Input.GetButton("Slide")) SlideEvent(1);
+            if (Input.GetButtonUp("Slide")) SlideEvent(0);
         }
     }
 
